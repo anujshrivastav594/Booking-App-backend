@@ -35,7 +35,7 @@ app.use(cookieParser());
 
 app.use(express.json());
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://anuj-booking-app-backend.onrender.com' }));
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
