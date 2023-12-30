@@ -6,7 +6,7 @@ import usersRoute from "./routes/users.js";
 import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
 import cookieParser from "cookie-parser";
-import cors from "cors";
+// import cors from "cors";
 
 const app = express();
 dotenv.config();
@@ -35,7 +35,7 @@ app.use(cookieParser());
 
 app.use(express.json());
 
-app.use(cors({ origin: 'https://anuj-booking-app-frontend-client-side.onrender.com' }));
+// app.use(cors({ origin: 'https://localhost:8800' }));
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
@@ -54,9 +54,9 @@ app.use((err, req, res, next) => {
     });
 });
 
+const port = process.env.PORT || 8800
 
-
-app.listen(process.env.PORT || 8800, ()=> {
+app.listen(port, ()=> {
     connect();
-    console.log("Connected to Backend!");
+    console.log("Connected to Backend on " + port + "!");
 })
